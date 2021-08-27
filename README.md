@@ -30,6 +30,13 @@ In this project I have used the following tech stack.
 5. Retrofit: [Retrofit](https://square.github.io/retrofit/)
 
 
+https://user-images.githubusercontent.com/75352515/131121216-46eba314-b839-44d4-a395-bfd58b9df2b4.mp4
+
+
+
+
+
+
 <br>
 
 ## How to run the project 📑

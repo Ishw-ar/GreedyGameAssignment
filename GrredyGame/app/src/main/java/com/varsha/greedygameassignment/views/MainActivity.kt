@@ -3,6 +3,8 @@ package com.varsha.greedygameassignment.views
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
         save_button_activity.setOnClickListener {
             startActivity(Intent(this@MainActivity,SaveActivity::class.java))
         }
@@ -44,7 +48,32 @@ class MainActivity : AppCompatActivity() {
             newsAdapter.notifyDataSetChanged()
         })
 
+        etSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                searchDatabase(s.toString())
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+        })
+    }
+
+    /**
+     * A function for search related query from database.
+     */
+    private fun searchDatabase(query: String) {
+        val searchQuery = "%$query%"
+        newsViewModel.searchDatabase(searchQuery).observe(this, { list ->
+            list.let {
+                newsAdapter.setData(it)
+            }
+        })
     }
 
 

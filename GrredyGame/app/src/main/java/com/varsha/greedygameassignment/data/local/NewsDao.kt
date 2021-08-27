@@ -5,6 +5,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
+
 
 @Dao
 interface NewsDao {
@@ -27,5 +29,11 @@ interface NewsDao {
     @Query("SELECT COUNT(*) FROM my_news_table")
     fun count(): Int
 
+
+    /**
+     * This function will will return the row of items based on the query string from the database
+     */
+    @Query("SELECT * FROM my_news_table WHERE title LIKE :searchQuery")
+    fun searchDatabase(searchQuery: String): Flow<List<NewsEntity>>
 
 }

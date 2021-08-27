@@ -2,6 +2,7 @@ package com.varsha.greedygameassignment.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.varsha.greedygameassignment.data.local.NewsEntity
 import com.varsha.greedygameassignment.repository.NewsRepository
 import kotlinx.coroutines.CoroutineScope
@@ -28,6 +29,9 @@ class NewsViewModel(
 
     fun getCount(): Int {
         return repository.getCount()
+    }
+    fun searchDatabase(searchQuery: String): LiveData<List<NewsEntity>> {
+        return repository.searchDatabase(searchQuery).asLiveData()
     }
 
 }

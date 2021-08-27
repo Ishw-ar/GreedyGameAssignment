@@ -20,9 +20,11 @@ import kotlinx.coroutines.launch
  * This class is responsible for create and bind the data in the recyclerview
  */
 class NewsAdapter(
+
     val context: Context,
     private var newsList: List<NewsEntity>
 ) : RecyclerView.Adapter<NewsAdapter.PostViewHolder>() {
+
     private val saveNewsDao by lazy {
         val roomDatabase= SaveNewsDatabase.getSaveNewsDatabase(context)
         roomDatabase.getMySaveNewsDao()
@@ -47,7 +49,7 @@ class NewsAdapter(
                     newsList[position].image,
                     "Politics",newsList[position].title,
                     newsList[position].date,
-                    "Kundan"
+                    "Varsha"
                 )
                 insertSaveNews(saveNewsEntity)
             }
@@ -63,6 +65,10 @@ class NewsAdapter(
         CoroutineScope(Dispatchers.IO).launch {
             saveNewsDao.insertSaveNews(saveNewsEntity)
         }
+    }
+    fun setData(newData: List<NewsEntity>) {
+        newsList = newData
+        notifyDataSetChanged()
     }
 
 }

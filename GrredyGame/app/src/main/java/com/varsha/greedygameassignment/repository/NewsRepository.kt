@@ -6,6 +6,8 @@ import androidx.lifecycle.LiveData
 import com.varsha.greedygameassignment.data.local.NewsDao
 import com.varsha.greedygameassignment.data.local.NewsEntity
 import com.varsha.greedygameassignment.data.remote.ApiServices
+import kotlinx.coroutines.flow.Flow
+
 import java.net.URL
 
 
@@ -60,6 +62,12 @@ class NewsRepository(private val newsDao: NewsDao) {
     fun getCount(): Int {
         return newsDao.count()
 
+    }
+    /**
+     * This function will will return the row of items based on the query string from the database
+     */
+    fun searchDatabase(searchQuery: String): Flow<List<NewsEntity>> {
+        return newsDao.searchDatabase(searchQuery)
     }
 
 }

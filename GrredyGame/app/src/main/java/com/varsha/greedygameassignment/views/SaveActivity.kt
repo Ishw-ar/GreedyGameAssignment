@@ -1,5 +1,6 @@
 package com.varsha.greedygameassignment.views
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -26,6 +27,11 @@ class SaveActivity : AppCompatActivity() {
             newsEntity.addAll(it)
             newsAdapter.notifyDataSetChanged()
         })
+
+        btn_back_save.setOnClickListener {
+            val intent = Intent(this@SaveActivity,MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

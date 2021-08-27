@@ -13,12 +13,13 @@ import com.varsha.greedygameassignment.data.local.NewsEntity
 import com.varsha.greedygameassignment.viewmodels.NewsViewModel
 import com.varsha.greedygameassignment.viewmodels.NewsViewModelFactory
 import com.varsha.greedygameassignment.views.adapter.NewsAdapter
+import com.varsha.greedygameassignment.views.interfaces.ItemClickListener
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),ItemClickListener {
     private lateinit var newsViewModel: NewsViewModel
     lateinit var newsAdapter: NewsAdapter
     private val newsEntity = mutableListOf<NewsEntity>()
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         save_button_activity.setOnClickListener {
             startActivity(Intent(this@MainActivity,SaveActivity::class.java))
         }
-        newsAdapter = NewsAdapter(this@MainActivity, newsEntity)
+        newsAdapter = NewsAdapter(this@MainActivity, newsEntity,this)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = newsAdapter
         val app = application as ApplicationClass
@@ -74,6 +75,17 @@ class MainActivity : AppCompatActivity() {
                 newsAdapter.setData(it)
             }
         })
+    }
+
+    override fun onItemClicked(newsEntity: NewsEntity) {
+    val intent=Intent(this@MainActivity,NewsDetailsActivity::class.java)
+        intent.putExtra("image",newsEntity.image)
+        intent.putExtra("title",newsEntity.title)
+        intent.putExtra("date",newsEntity.date)
+        intent.putExtra("description",newsEntity.description)
+        intent.putExtra("author",newsEntity.name)
+        intent.putExtra("companyname",newsEntity.companyname)
+        startActivity(intent)
     }
 
 

@@ -11,6 +11,7 @@ import com.varsha.greedygameassignment.R
 import com.varsha.greedygameassignment.data.local.NewsEntity
 import com.varsha.greedygameassignment.data.local.SaveNewsDatabase
 import com.varsha.greedygameassignment.data.local.SaveNewsEntity
+import com.varsha.greedygameassignment.views.interfaces.ItemClickListener
 import kotlinx.android.synthetic.main.news_item.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +23,8 @@ import kotlinx.coroutines.launch
 class NewsAdapter(
 
     val context: Context,
-    private var newsList: List<NewsEntity>
+    private var newsList: List<NewsEntity>,
+    val listener:ItemClickListener
 ) : RecyclerView.Adapter<NewsAdapter.PostViewHolder>() {
 
     private val saveNewsDao by lazy {
@@ -47,13 +49,20 @@ class NewsAdapter(
             button_save.setOnClickListener {
                 val saveNewsEntity=SaveNewsEntity(
                     newsList[position].image,
-                    "Politics",newsList[position].title,
+                    "#Politics",newsList[position].title,
                     newsList[position].date,
                     "Varsha"
                 )
                 insertSaveNews(saveNewsEntity)
             }
+            image_news.setOnClickListener {
+                listener.onItemClicked(newsList[position])
+            }
+            button_read.setOnClickListener {
+                listener.onItemClicked(newsList[position])
+            }
         }
+
 
     }
 

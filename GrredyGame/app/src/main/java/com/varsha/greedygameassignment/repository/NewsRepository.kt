@@ -26,13 +26,16 @@ class NewsRepository(private val newsDao: NewsDao) {
         val result = api.getLatestNews()
         for (i in result.articles.indices) {
             if(result.articles[i].urlToImage!=null && result.articles[i].title!=null
-                && result.articles[i].description!=null && result.articles[i].publishedAt!=null) {
+                && result.articles[i].description!=null && result.articles[i].publishedAt!=null
+                && result.articles[i].author!=null&&result.articles[i].source.name!=null) {
                 val myEntity =
                     NewsEntity(
                         result.articles[i].urlToImage,
                         result.articles[i].title,
                         result.articles[i].description,
-                        result.articles[i].publishedAt
+                        result.articles[i].publishedAt,
+                        result.articles[i].author,
+                        result.articles[i].source.name
                     )
                 newsDao.insertNews(myEntity)
             }

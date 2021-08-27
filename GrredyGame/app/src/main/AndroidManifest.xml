@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GreedyGameAssignment">
         <activity android:name=".views.SaveActivity"></activity>
+        <activity android:name=".views.NewsDetailsActivity"></activity>
         <activity android:name=".views.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

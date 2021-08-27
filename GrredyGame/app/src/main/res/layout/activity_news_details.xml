@@ -3,131 +3,140 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".views.NewsDetailsActivity">
+
     <ImageView
-        android:id="@+id/image_news"
+        android:id="@+id/image_details"
         android:layout_width="match_parent"
         android:layout_height="320dp"
-
         android:scaleType="fitXY"
-        android:src="@drawable/ic_launcher_background"
+
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent" />
+
     <ImageView
-        android:id="@+id/btn_save"
+        android:id="@+id/image_save_details"
         android:layout_width="34dp"
         android:layout_height="34dp"
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
-        android:src="@drawable/ribbon"/>
+        android:src="@drawable/ribbon" />
 
     <ImageView
-        android:id="@+id/btn_back"
+        android:id="@+id/btn_back_details"
         android:layout_width="34dp"
         android:layout_height="34dp"
         android:layout_margin="16dp"
-        android:src="@drawable/arrow_back"/>
-<TextView
-    android:id="@+id/show_date"
-    android:layout_width="wrap_content"
-    android:fontFamily="@font/roboto_light"
-    android:text="29-03-21"
-    android:textSize="16sp"
-    android:layout_below="@+id/btn_back"
-    android:layout_marginTop="90dp"
-    android:layout_marginLeft="20dp"
-    android:layout_height="wrap_content"/>
+        android:src="@drawable/arrow_back" />
+
     <TextView
-        android:id="@+id/show_text"
+        android:id="@+id/show_date_details"
         android:layout_width="wrap_content"
-        android:fontFamily="@font/roboto_light"
-        android:text="Lorem ipsum dolor sit amet consectetur adi"
-        android:layout_below="@+id/show_date"
-        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_back_details"
         android:layout_marginLeft="20dp"
-        android:textSize="26sp"
-        android:layout_height="wrap_content"/>
-
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    app:cardCornerRadius="50dp"
-    android:layout_below="@+id/show_text"
-    android:layout_height="match_parent">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_height="50dp"
-        app:cardCornerRadius="8dp"
-        >
-        <ImageView
-            android:id="@+id/save_news_image"
-            android:layout_width="wrap_content"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_launcher_background"
-            android:layout_height="wrap_content"/>
-    </androidx.cardview.widget.CardView>
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="wrap_content"
-        android:text="Varsha Kumari"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="90dp"
         android:fontFamily="@font/roboto_light"
-     android:layout_toEndOf="@id/card_view"
-        android:layout_marginTop="25dp"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/tvCompanyName"
-        android:layout_width="wrap_content"
-        android:text="Varsha Kumari"
-        android:layout_marginLeft="10dp"
-        android:fontFamily="@font/roboto_light"
-        android:layout_toEndOf="@+id/card_view"
-        android:layout_below="@+id/tvName"
-        android:layout_height="wrap_content"/>
-
-        <Button
-        android:id="@+id/button_save"
-        android:layout_width="120dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/roboto_medium"
-        android:background="@drawable/button_bgd"
+        android:text="29-03-21"
         android:textColor="@color/white"
-        android:text="Save"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="22dp"
-        android:textAllCaps="false"
-        android:textSize="16sp"/>
-        <TextView
-            android:id="@+id/text_shows_description"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/show_text_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/show_date_details"
+        android:layout_margin="16dp"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/roboto_bold"
+        android:maxLength="42"
+        android:text="Lorem ipsum dolor sit amet consectetur adi"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/show_text_details"
+        app:cardCornerRadius="50dp">
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/card_view"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/roboto_light"
-            android:text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan ium doloremque laudan..."
-            android:textColor="@color/black"
-            android:maxLength="95"
-            android:textSize="21sp"/>
+            android:layout_height="wrap_content">
 
-    </RelativeLayout>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view_details"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="8dp">
+
+                <ImageView
+                    android:id="@+id/save_news_image_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tvName_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_toEndOf="@id/card_view_details"
+                android:fontFamily="@font/roboto_light"
+                android:text="Varsha Kumari"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvCompanyName_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvName_details"
+                android:layout_marginLeft="10dp"
+                android:layout_toEndOf="@+id/card_view_details"
+                android:fontFamily="@font/roboto_light"
+                android:text="Varsha Kumari" />
+
+            <Button
+                android:id="@+id/btn_save_details"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="22dp"
+                android:background="@drawable/button_bgd"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Save"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/shows_description_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_view_details"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/roboto_light"
+                android:text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusan ium doloremque laudan..."
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
 
 
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
-    </RelativeLayout>
+</RelativeLayout>
 
 
 
